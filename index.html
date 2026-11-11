@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HostelCare - request room cleaning and track cleaning complaints.">
+  <title>HostelCare | Cleaning & Complaints</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="logo" href="#home">Hostel<span>Care</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#cleaning">Request Cleaning</a></li>
+        <li><a href="#complaint">Complaint</a></li>
+        <li><a href="#tracking">Track Requests</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">A cleaner hostel starts here</span>
+        <h1>Keep Your Hostel <span>Clean & Comfortable</span></h1>
+        <p>Request room cleaning, report cleaning issues and keep track of your requests — all in one simple place.</p>
+        <div class="buttons">
+          <a href="#cleaning" class="btn primary-btn">Request cleaning</a>
+          <a href="#tracking" class="btn secondary-btn">Track my request</a>
+        </div>
+        <div class="hero-note"><span class="live-dot"></span> Simple, quick and student-friendly</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle"></div>
+        <div class="clean-card">
+          <div class="clean-icon">🧹</div>
+          <div><strong>Fresh room, fresh start</strong><small>Your comfort matters to us.</small></div>
+          <span class="check-mark">✓</span>
+        </div>
+        <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">Our services</span>
+        <h2>What can you do?</h2>
+        <p>Choose a service to get started.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon icon-blue">🧹</div>
+          <h3>Room Cleaning</h3>
+          <p>Submit a request to get your hostel room cleaned on a preferred date.</p>
+          <a href="#cleaning" class="card-link">Request now <span>→</span></a>
+        </article>
+        <article class="card">
+          <div class="icon icon-orange">📢</div>
+          <h3>Cleaning Complaint</h3>
+          <p>Report a missed cleaning visit or any cleanliness-related problem.</p>
+          <a href="#complaint" class="card-link">Report a problem <span>→</span></a>
+        </article>
+        <article class="card">
+          <div class="icon icon-green">📋</div>
+          <h3>Track Requests</h3>
+          <p>See the requests and complaints you have submitted and their status.</p>
+          <a href="#tracking" class="card-link">View my requests <span>→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="cleaning" class="form-section">
+      <div class="form-layout">
+        <div class="form-intro">
+          <span class="eyebrow">Feature 01</span>
+          <h2>Request room cleaning</h2>
+          <p>Fill in your details and choose a preferred date. Your request will be saved so you can track it later.</p>
+          <ul class="benefit-list">
+            <li><span>✓</span> Quick request submission</li>
+            <li><span>✓</span> Choose a preferred date</li>
+            <li><span>✓</span> Track your request anytime</li>
+          </ul>
+        </div>
+        <form id="cleaningForm" class="form-card">
+          <h3>Cleaning request form</h3>
+          <p class="form-subtitle">Fields marked with * are required.</p>
+          <div class="form-grid">
+            <label>Student name *
+              <input type="text" name="studentName" placeholder="Enter your full name" required maxlength="60">
+            </label>
+            <label>Student email *
+              <input type="email" name="email" placeholder="name@example.com" required maxlength="100">
+            </label>
+            <label>Hostel / Block *
+              <input type="text" name="hostel" placeholder="e.g. Hostel A" required maxlength="40">
+            </label>
+            <label>Room number *
+              <input type="text" name="room" placeholder="e.g. 204" required maxlength="12">
+            </label>
+            <label>Preferred cleaning date *
+              <input type="date" name="date" id="cleaningDate" required>
+            </label>
+            <label>Preferred time
+              <select name="time">
+                <option value="Any available time">Any available time</option>
+                <option>Morning (8 AM - 12 PM)</option>
+                <option>Afternoon (12 PM - 4 PM)</option>
+                <option>Evening (4 PM - 7 PM)</option>
+              </select>
+            </label>
+            <label class="full-width">Additional instructions
+              <textarea name="notes" rows="3" placeholder="Any specific cleaning instructions? (optional)" maxlength="300"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn primary-btn submit-btn">Submit cleaning request</button>
+          <p class="form-message" id="cleaningMessage" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="complaint" class="section complaint-section">
+      <div class="complaint-layout">
+        <div>
+          <span class="eyebrow">Feature 02</span>
+          <h2>Report a cleaning problem</h2>
+          <p>Let the cleaning team know what needs attention. Include the room details and a short description of the issue.</p>
+          <div class="support-note"><span>ⓘ</span><p>After submitting, your complaint will appear in the tracking section with a unique ID.</p></div>
+        </div>
+        <form id="complaintForm" class="form-card">
+          <h3>Complaint form</h3>
+          <div class="form-grid">
+            <label>Student name *
+              <input type="text" name="studentName" placeholder="Enter your name" required maxlength="60">
+            </label>
+            <label>Student email *
+              <input type="email" name="email" placeholder="name@example.com" required maxlength="100">
+            </label>
+            <label>Hostel / Block *
+              <input type="text" name="hostel" placeholder="e.g. Hostel A" required maxlength="40">
+            </label>
+            <label>Room number *
+              <input type="text" name="room" placeholder="e.g. 204" required maxlength="12">
+            </label>
+            <label class="full-width">Type of problem *
+              <select name="category" required>
+                <option value="">Select a problem</option>
+                <option>Room not cleaned</option>
+                <option>Washroom cleaning</option>
+                <option>Dustbin not emptied</option>
+                <option>Missed cleaning schedule</option>
+                <option>Other cleaning issue</option>
+              </select>
+            </label>
+            <label class="full-width">Describe the problem *
+              <textarea name="description" rows="4" placeholder="Explain the issue..." required maxlength="500"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn primary-btn submit-btn">Submit complaint</button>
+          <p class="form-message" id="complaintMessage" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="tracking" class="tracking-section">
+      <div class="section-heading">
+        <span class="eyebrow">Feature 03</span>
+        <h2>Track your requests</h2>
+        <p>Enter the email address used when submitting a request to view your records on this device.</p>
+      </div>
+      <div class="tracking-panel">
+        <form id="trackForm" class="track-form">
+          <label for="trackEmail">Student email</label>
+          <input type="email" id="trackEmail" placeholder="Enter your registered email" required>
+          <button class="btn primary-btn" type="submit">Find my requests</button>
+        </form>
+        <div id="trackingResults" class="tracking-results">
+          <div class="empty-state"><span>📬</span><strong>Your requests will appear here</strong><p>Submit a cleaning request or complaint, then search using your email.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <a class="logo footer-logo" href="#home">Hostel<span>Care</span></a>
+    <p>Making hostel cleanliness easier, one request at a time.</p>
+    <small>© <span id="year"></span> HostelCare · Student project</small>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
