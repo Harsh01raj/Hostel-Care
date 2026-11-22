@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your HostelCare cleaning requests and complaints.">
+  <title>HostelCare | Track Requests</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="logo" href="index.html">Hostel<span>Care</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="cleaning.html">Request Cleaning</a></li>
+        <li><a href="complaint.html">Complaint</a></li>
+        <li><a href="tracking.html" aria-current="page">Track Requests</a></li>
+        <li><a href="account.html">Sign in</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="tracking-section">
+    <div class="section-heading">
+      <span class="eyebrow">Feature 03</span>
+      <h2>Track your requests</h2>
+      <p>Sign in with your verified email to see requests for your assigned room.</p>
+    </div>
+    <div class="tracking-panel">
+      <p class="tracking-auth-note">Your requests will load after you verify your email.</p>
+      <div id="trackingResults" class="tracking-results">
+        <div class="empty-state"><span>📬</span><strong>Your requests will appear here</strong><p>Verify your email to view your cleaning requests and complaints.</p></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <a class="logo footer-logo" href="index.html">Hostel<span>Care</span></a>
+    <p>Making hostel cleanliness easier, one request at a time.</p>
+    <small>© <span id="year"></span> HostelCare · Student project</small>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
