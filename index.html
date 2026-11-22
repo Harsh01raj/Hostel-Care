@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="HostelCare - request room cleaning and track cleaning complaints.">
   <title>HostelCare | Cleaning & Complaints</title>
-  <link rel="stylesheet" href="css/style.css">
-<script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
@@ -43,6 +45,39 @@
           <span class="check-mark">✓</span>
         </div>
         <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
+      </div>
+    </section>
+
+    <section id="account" class="auth-section">
+      <div class="section-heading">
+        <span class="eyebrow">Verify your email</span>
+        <h2>Sign in to use HostelCare</h2>
+        <p>We’ll email you a one-time code. Requests are available only for email addresses assigned to a room by hostel staff.</p>
+      </div>
+      <div class="auth-panel">
+        <form id="emailForm" class="auth-form">
+          <label for="authEmail">Student email</label>
+          <div class="auth-input-row">
+            <input type="email" id="authEmail" placeholder="name@example.com" autocomplete="email" required maxlength="100">
+            <button type="submit" class="btn primary-btn">Send OTP</button>
+          </div>
+        </form>
+        <form id="otpForm" class="auth-form" hidden>
+          <label for="authOtp">One-time code</label>
+          <div class="auth-input-row">
+            <input type="text" id="authOtp" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code from your email" required maxlength="10">
+            <button type="submit" class="btn primary-btn">Verify code</button>
+          </div>
+          <div class="auth-actions">
+            <button type="button" id="resendOtpButton">Send a new code</button>
+            <button type="button" id="changeEmailButton">Use a different email</button>
+          </div>
+        </form>
+        <div id="accountDetails" class="account-details" hidden>
+          <p id="accountRoom"></p>
+          <button type="button" class="btn secondary-btn" id="signOutButton">Sign out</button>
+        </div>
+        <p class="form-message" id="authMessage" role="status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -93,15 +128,6 @@
             <label>Student name *
               <input type="text" name="studentName" placeholder="Enter your full name" required maxlength="60">
             </label>
-            <label>Student email *
-              <input type="email" name="email" placeholder="name@example.com" required maxlength="100">
-            </label>
-            <label>Hostel / Block *
-              <input type="text" name="hostel" placeholder="e.g. Hostel A" required maxlength="40">
-            </label>
-            <label>Room number *
-              <input type="text" name="room" placeholder="e.g. 204" required maxlength="12">
-            </label>
             <label>Preferred cleaning date *
               <input type="date" name="date" id="cleaningDate" required>
             </label>
@@ -137,15 +163,6 @@
             <label>Student name *
               <input type="text" name="studentName" placeholder="Enter your name" required maxlength="60">
             </label>
-            <label>Student email *
-              <input type="email" name="email" placeholder="name@example.com" required maxlength="100">
-            </label>
-            <label>Hostel / Block *
-              <input type="text" name="hostel" placeholder="e.g. Hostel A" required maxlength="40">
-            </label>
-            <label>Room number *
-              <input type="text" name="room" placeholder="e.g. 204" required maxlength="12">
-            </label>
             <label class="full-width">Type of problem *
               <select name="category" required>
                 <option value="">Select a problem</option>
@@ -170,16 +187,12 @@
       <div class="section-heading">
         <span class="eyebrow">Feature 03</span>
         <h2>Track your requests</h2>
-        <p>Enter the email address used when submitting a request to view your records on this device.</p>
+        <p>Sign in with your verified email to see requests for your assigned room.</p>
       </div>
       <div class="tracking-panel">
-        <form id="trackForm" class="track-form">
-          <label for="trackEmail">Student email</label>
-          <input type="email" id="trackEmail" placeholder="Enter your registered email" required>
-          <button class="btn primary-btn" type="submit">Find my requests</button>
-        </form>
+        <p class="tracking-auth-note">Your requests will load after you verify your email above.</p>
         <div id="trackingResults" class="tracking-results">
-          <div class="empty-state"><span>📬</span><strong>Your requests will appear here</strong><p>Submit a cleaning request or complaint, then search using your email.</p></div>
+          <div class="empty-state"><span>📬</span><strong>Your requests will appear here</strong><p>Verify your email to view your cleaning requests and complaints.</p></div>
         </div>
       </div>
     </section>
