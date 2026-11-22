@@ -12,6 +12,7 @@
   --shadow: 0 16px 45px rgba(23, 63, 95, .09);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { font-family: 'DM Sans', Arial, sans-serif; color: var(--ink); background: #fbfdfe; line-height: 1.6; }
 a { color: inherit; }
@@ -83,6 +84,16 @@ textarea { resize: vertical; }
 .complaint-layout { grid-template-columns: .8fr 1.2fr; align-items: center; }
 .support-note { display: flex; gap: 12px; padding: 15px; margin-top: 24px; background: #eef7f7; border-radius: 8px; color: var(--blue); }
 .support-note > span { font-size: 20px; }.support-note p { color: #526d78; font-size: 12px; }
+.auth-section { padding: 72px 9%; background: white; }
+.auth-panel { max-width: 650px; margin: auto; padding: 25px; background: #f8fbfc; border: 1px solid var(--line); border-radius: 12px; }
+.auth-form { margin-bottom: 12px; }
+.auth-form label { display: block; margin-bottom: 7px; color: #405561; font-size: 12px; font-weight: 700; }
+.auth-input-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+.auth-input-row .btn { min-width: 125px; }
+.auth-actions { display: flex; gap: 16px; margin-top: 10px; }
+.auth-actions button { padding: 0; border: 0; background: none; color: var(--blue); cursor: pointer; font: 600 12px 'DM Sans', sans-serif; text-decoration: underline; }
+.account-details { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: var(--navy); font-size: 13px; font-weight: 600; }
+.tracking-auth-note { color: var(--muted); font-size: 13px; }
 .tracking-section { padding: 80px 9%; background: #f3f8fa; }
 .tracking-panel { max-width: 950px; margin: auto; background: white; border: 1px solid #e5edef; border-radius: 13px; padding: 25px; box-shadow: var(--shadow); }
 .track-form { display: grid; grid-template-columns: 1fr auto; gap: 10px 14px; align-items: end; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
@@ -107,7 +118,7 @@ footer p { font-size: 12px; margin-bottom: 13px; }footer small { font-size: 10px
 @media (max-width: 850px) {
   .navbar { padding: 14px 5%; }.nav-links { gap: 14px; }.nav-links a { font-size: 12px; }
   .hero { padding: 65px 7%; }.hero-art { flex-basis: 280px; transform: scale(.85); }
-  .section, .form-section, .tracking-section { padding: 65px 6%; }
+  .section, .form-section, .auth-section, .tracking-section { padding: 65px 6%; }
   .form-layout, .complaint-layout { gap: 28px; }
 }
 @media (max-width: 650px) {
@@ -121,5 +132,6 @@ footer p { font-size: 12px; margin-bottom: 13px; }footer small { font-size: 10px
   .form-intro { padding-top: 0; }.form-intro h2, .complaint-layout h2, .section-heading h2 { font-size: 29px; }
   .form-card { padding: 21px; }.form-grid { grid-template-columns: 1fr; }.full-width { grid-column: auto; }
   .track-form { grid-template-columns: 1fr; }.track-form label { grid-column: auto; }.track-form .btn { width: 100%; }
+  .auth-input-row { grid-template-columns: 1fr; }.account-details { align-items: flex-start; flex-direction: column; }
   .request-item { grid-template-columns: 1fr; }.status { justify-self: start; }.request-meta { grid-column: auto; }
 }

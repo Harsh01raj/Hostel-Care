@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to HostelCare with your student email.">
+  <title>HostelCare | Sign in</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="logo" href="index.html">Hostel<span>Care</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="cleaning.html">Request Cleaning</a></li>
+        <li><a href="complaint.html">Complaint</a></li>
+        <li><a href="tracking.html">Track Requests</a></li>
+        <li><a href="account.html" aria-current="page">Sign in</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="auth-section">
+    <div class="section-heading">
+      <span class="eyebrow">Verify your email</span>
+      <h2>Sign in to use HostelCare</h2>
+      <p>We’ll email you a one-time code. Requests are available only for email addresses assigned to a room by hostel staff.</p>
+    </div>
+    <div class="auth-panel">
+      <form id="emailForm" class="auth-form">
+        <label for="authEmail">Student email</label>
+        <div class="auth-input-row">
+          <input type="email" id="authEmail" placeholder="name@example.com" autocomplete="email" required maxlength="100">
+          <button type="submit" class="btn primary-btn">Send OTP</button>
+        </div>
+      </form>
+      <form id="otpForm" class="auth-form" hidden>
+        <label for="authOtp">One-time code</label>
+        <div class="auth-input-row">
+          <input type="text" id="authOtp" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code from your email" required maxlength="10">
+          <button type="submit" class="btn primary-btn">Verify code</button>
+        </div>
+        <div class="auth-actions">
+          <button type="button" id="resendOtpButton">Send a new code</button>
+          <button type="button" id="changeEmailButton">Use a different email</button>
+        </div>
+      </form>
+      <div id="accountDetails" class="account-details" hidden>
+        <p id="accountRoom"></p>
+        <button type="button" class="btn secondary-btn" id="signOutButton">Sign out</button>
+      </div>
+      <p class="form-message" id="authMessage" role="status" aria-live="polite"></p>
+    </div>
+  </main>
+  <footer>
+    <a class="logo footer-logo" href="index.html">Hostel<span>Care</span></a>
+    <p>Making hostel cleanliness easier, one request at a time.</p>
+    <small>© <span id="year"></span> HostelCare · Student project</small>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

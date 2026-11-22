@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request room cleaning through HostelCare.">
+  <title>HostelCare | Request Cleaning</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="logo" href="index.html">Hostel<span>Care</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="cleaning.html" aria-current="page">Request Cleaning</a></li>
+        <li><a href="complaint.html">Complaint</a></li>
+        <li><a href="tracking.html">Track Requests</a></li>
+        <li><a href="account.html">Sign in</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="form-section">
+    <div class="form-layout">
+      <div class="form-intro">
+        <span class="eyebrow">Feature 01</span>
+        <h2>Request room cleaning</h2>
+        <p>Fill in your details and choose a preferred date. Your request will be saved so you can track it later.</p>
+        <ul class="benefit-list">
+          <li><span>✓</span> Quick request submission</li>
+          <li><span>✓</span> Choose a preferred date</li>
+          <li><span>✓</span> Track your request anytime</li>
+        </ul>
+      </div>
+      <form id="cleaningForm" class="form-card">
+        <h3>Cleaning request form</h3>
+        <p class="form-subtitle">Fields marked with * are required.</p>
+        <div class="form-grid">
+          <label>Student name *
+            <input type="text" name="studentName" placeholder="Enter your full name" required maxlength="60">
+          </label>
+          <label>Preferred cleaning date *
+            <input type="date" name="date" id="cleaningDate" required>
+          </label>
+          <label>Preferred time
+            <select name="time">
+              <option value="Any available time">Any available time</option>
+              <option>Morning (8 AM - 12 PM)</option>
+              <option>Afternoon (12 PM - 4 PM)</option>
+              <option>Evening (4 PM - 7 PM)</option>
+            </select>
+          </label>
+          <label class="full-width">Additional instructions
+            <textarea name="notes" rows="3" placeholder="Any specific cleaning instructions? (optional)" maxlength="300"></textarea>
+          </label>
+        </div>
+        <button type="submit" class="btn primary-btn submit-btn">Submit cleaning request</button>
+        <p class="form-message" id="cleaningMessage" role="status"></p>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <a class="logo footer-logo" href="index.html">Hostel<span>Care</span></a>
+    <p>Making hostel cleanliness easier, one request at a time.</p>
+    <small>© <span id="year"></span> HostelCare · Student project</small>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
